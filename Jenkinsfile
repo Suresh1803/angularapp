@@ -20,17 +20,23 @@ pipeline {
             }
         }
 
-       
-
-        stage('Deploy to Tomcat') {
+        stage('Test') {
             steps {
                 script {
-                    // Copy WAR file to Tomcat webapps directory
-                    deploy adapters: [tomcat9(credentialsId: '52c2dda3-aa16-4be4-a66b-d7d0f0f51bdc', path: '', url: 'http://localhost:8080')], contextPath: null, war: '**/*'
+                    // Run tests if any
+                    sh 'ng test'
                 }
             }
         }
-    
+
+        stage('Deploy') {
+            steps {
+                script {
+                   deploy adapters: [tomcat9(credentialsId: '52c2dda3-aa16-4be4-a66b-d7d0f0f51bdc', path: '', url: 'http://localhost:8080')], contextPath: null, war: '**/*'
+                }
+            }
+        }
+    }
 
    
-}
+
