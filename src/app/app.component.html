@@ -1,0 +1,27 @@
+<form [formGroup]="multiStepForm" (ngSubmit)="onSubmit()">
+  <div *ngIf="currentStep === 1">
+    <!-- Step 1 -->
+    <input type="text" class="form-control" formControlName="firstName" placeholder="First Name">
+    <!-- Add more fields for step 1 -->
+
+    <button type="button" class="btn btn-primary mt-3" (click)="nextStep()">Next</button>
+  </div>
+  
+  <div *ngIf="currentStep === 2">
+    <!-- Step 2 -->
+    <input type="text" class="form-control" formControlName="lastName" placeholder="Last Name">
+    <!-- Add more fields for step 2 -->
+
+    <button type="button" class="btn btn-secondary mt-3 mr-3" (click)="prevStep()">Previous</button>
+    <button type="button" class="btn btn-primary mt-3" (click)="nextStep()">Next</button>
+  </div>
+
+  <div *ngIf="currentStep === 3">
+    <!-- Step 3 -->
+    <input type="email" class="form-control" formControlName="email" placeholder="Email">
+    <!-- Add more fields for step 3 -->
+
+    <button type="button" class="btn btn-secondary mt-3 mr-3" (click)="prevStep()">Previous</button>
+    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+  </div>
+</form>
