@@ -1,7 +1,8 @@
 pipeline {
-      agent any
-    tools {
-        nodejs 'node'
+     agent any
+    environment {
+        NODEJS_HOME = tool 'nodejs'
+        PATH = "$NODEJS_HOME/bin:$PATH"
     }
 
     stages {
