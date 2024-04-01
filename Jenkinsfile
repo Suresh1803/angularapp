@@ -15,7 +15,7 @@ pipeline {
         }
 
        
-    }
+    
        stage('Make Prod Build') {
         bat ' ng build --watch --base-href=/angularapp/ && cd dist/angularapp && jar -cvf angularapp.war *'
     }
