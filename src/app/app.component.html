@@ -1,10 +1,10 @@
 <form [formGroup]="multiStepForm" (ngSubmit)="onSubmit()">
   <div *ngIf="currentStep === 1">
     <!-- Step 1 -->
-    <input type="text" class="form-control" formControlName="firstName" placeholder="First Name">
+    <input type="text" class="form-control" formControlName="firstName" placeholder="First Name" value="suresh">
     <!-- Add more fields for step 1 -->
 
-    <button type="button" class="btn btn-primary mt-3" (click)="nextStep()">Next</button>
+    <button type="button" class="btn btn-primary mt-3" (click)="nextStep()">Next Button</button>
   </div>
   
   <div *ngIf="currentStep === 2">
