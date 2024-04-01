@@ -9,7 +9,7 @@ pipeline {
         stage('Install dependencies') {
             steps {
                 script {
-                    bat 'npm run clean'
+                    bat 'rmdir /s /q dist'
                     bat 'npm install'
                 }
             }
