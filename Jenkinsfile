@@ -1,5 +1,8 @@
 pipeline {
-    agent any
+      agent any
+    tools {
+        maven 'node'
+    }
 
     stages {
         stage('Checkout') {
