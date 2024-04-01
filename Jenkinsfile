@@ -15,7 +15,7 @@ pipeline {
         }
  stage ('Build') {
       steps {
-        bat ' npm run build --watch --base-href=/angularapp/ && cd dist/angularapp && jar -cvf angularapp.war *'
+        bat 'ng build --watch'
       }
     }
        
