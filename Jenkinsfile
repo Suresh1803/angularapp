@@ -9,7 +9,7 @@ pipeline {
         stage('Install dependencies') {
             steps {
                 script {
-                    // Install Node.js dependencies
+                    bat 'npm run clean'
                     bat 'npm install'
                 }
             }
