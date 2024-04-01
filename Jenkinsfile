@@ -24,7 +24,7 @@ pipeline {
       stage ('Deploy') {
       steps {
         script {
-         bat 'xcopy /S /Y "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\angularapp\\dist\\angular-stepperdemo\\*" "D:\\softwares\\apache-tomcat-9.0.64\\webapps\\ROOT\\"'
+         bat 'xcopy /S /Y "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\angularapp\\dist\\angular-stepperdemo\\browser\\*" "D:\\softwares\\apache-tomcat-9.0.64\\webapps\\ROOT\\"'
         }
       }
     }
