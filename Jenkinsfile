@@ -13,14 +13,20 @@ pipeline {
                 }
             }
         }
-
+ stage ('Build') {
+      steps {
+        bat ' ng build --watch --base-href=/angularapp/ && cd dist/angularapp && jar -cvf angularapp.war *'
+      }
+    }
        
     
-       stage('Make Prod Build') {
-        bat ' ng build --watch --base-href=/angularapp/ && cd dist/angularapp && jar -cvf angularapp.war *'
+      stage ('Deploy') {
+      steps {
+        script {
+        deploy adapters: [tomcat9(credentialsId: '52c2dda3-aa16-4be4-a66b-d7d0f0f51bdc', path: '', url: 'http://localhost:8080')], contextPath: null, war: '**/*'
+        }
+      }
     }
-    stage ('Deploy on this Server') {
-       deploy adapters: [tomcat9(credentialsId: '52c2dda3-aa16-4be4-a66b-d7d0f0f51bdc', path: '', url: 'http://localhost:8080')], contextPath: null, war: '**/*'
-    }
+
   }
 }
